@@ -5,33 +5,6 @@
 
 #define MAX_KEYS 1000
 
-int binarysearch(char ** keyArray, const char * key, int lineNum)
-{
-	int mid = 0;
-	int begin = 0;
-	int end = lineNum;
-
-	while(begin <= end) // Implementing binary search
-	{
-		mid = begin + ((end - begin)/2) ;
-		int ret = strcmp(keyArray[mid], key);
-		if(0 == ret) // Key found, return the location
-		{
-			return mid;
-		}
-		else
-		{
-			if(ret < 1)
-				begin = mid + 1;
-			else
-				end = mid - 1;
-		}
-	}
-
-	printf("Key %s is not present in the input file.\n", key);
-	return -1;
-}
-
 int main(int argc, char ** argv)
 {
 	const char * key = argv[2];
